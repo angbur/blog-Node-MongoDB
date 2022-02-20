@@ -10,11 +10,19 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "dompurify": "^2.3.6",
     "ejs": "^3.1.6",
+    "ejs-lint": "^1.2.1",
     "express": "^4.17.3",
-    "mongoose": "^6.2.2"
+    "jsdom": "^19.0.0",
+    "marked": "^4.0.12",
+    "method-override": "^3.0.0",
+    "mongoose": "^6.2.2",
+    "slugify": "^1.6.5"
   },
   "devDependencies": {
-    "nodemon": "^2.0.15"
+    "nodemon": "^2.0.15",
+    "prettier": "^2.5.1",
+    "prettier-eslint": "^13.0.0"
   }
 }
