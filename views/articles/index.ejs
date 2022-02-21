@@ -14,6 +14,10 @@
     .card {
       margin: 1rem;
     }
+    .card img {
+      height: 300px;
+      object-fit: cover;
+    }
     </style>
 </head>
 <body>
@@ -24,24 +28,30 @@
       <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
         <h1>👁️‍🗨️ BLOG ARTICLES<h1>
       </a>
-      <a href="/articles/new" class="btn btn-primary">+ New Article</a>
+      <a href="/articles/new" class="btn btn-primary mx-4">+ New Article</a>
     </div>
     <div class="grid-blog">
       <% articles.forEach(article => { %>
         <div class="card mt-4">
-          
+          <div>
+            <img class="card-img-top" src="uploads/<%= article.img.name %>"  >
+          </div>
           <div class="card-body">
-            <a href="articles/edit/<%= article.id %>" class="btn btn-success">Edit</a>
-            <form action="/articles/<%= article.id %>?_method=DELETE" method="POST" class="d-inline">
-              <button type="submit" class="btn btn-danger">Delete</button>
-            </form>
+            
             <h4 class="card-title mt-4"><%= article.title %></h4>
             <div class="card-subtitle text-muted mb-2">
               Created at <%= article.createdAt.toLocaleDateString() %>
             </div>
             <div class="card-text mb-2"><%= article.description %><br/>
-            <a href="articles/<%= article.slug %>" class="btn btn-outline-primary mt-4">Read More</a></div>
           </div>
+        </div>
+        <div class="card-footer">
+          <a href="articles/<%= article.slug %>" class="btn btn-primary">Read More</a>
+          <a  href="articles/edit/<%= article.id %>" class="btn btn-success">Edit</a>
+            <form action="/articles/<%= article.id %>?_method=DELETE" method="POST" class="d-inline">
+              <button type="submit" class="btn btn-danger">Delete</button>
+            </form>
+        </div>
         </div>
       <% }) %>
   </div>

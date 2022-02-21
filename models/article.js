@@ -1,7 +1,6 @@
-const mongoose = require('mongoose')
-const marked = require('marked')
-const slugify = require('slugify')
-
+const mongoose = require('mongoose');
+const marked = require('marked');
+const slugify = require('slugify');
 
 const articleSchema = new mongoose.Schema({
   title: {
@@ -9,8 +8,7 @@ const articleSchema = new mongoose.Schema({
     required: true
   },
   img: {
-    data: Buffer,
-    contentType: String
+    name: String,
   },
   description: {
     type: String
@@ -28,13 +26,13 @@ const articleSchema = new mongoose.Schema({
     unique: true
   }
 
-})
+});
 
 articleSchema.pre('validate', function(next) {
   if (this.title) {
-    this.slug = slugify(this.title, { lower: true, strict: true })
+    this.slug = slugify(this.title, { lower: true, strict: true });
   }
-  next()
+  next();
 })
 
-module.exports = mongoose.model('Article', articleSchema)
+module.exports = mongoose.model('Article', articleSchema);
