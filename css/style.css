@@ -1,0 +1,38 @@
+*{
+  box-sizing: border-box;
+}
+.grid-blog {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+}
+.card {
+  margin: 1rem;
+}
+.card img {
+  height: 300px;
+  object-fit: cover;
+}
+.btn-secondary {
+  background-color:#7d83ff;
+  border-color: #7d83ff;  
+ }
+.btn-secondary:hover {
+  background-color:#5c64ff;
+  border-color: #5c64ff;
+ }
+.btn-danger {
+  background-color:#FE5F55;
+  border-color:#FE5F55;
+}
+.photoContainer {
+  background-color:grey;
+  color: white;
+  height: 200px;
+  width: 200px;
+  padding: 0.6rem;
+  margin: 1rem 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

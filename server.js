@@ -17,6 +17,7 @@ app.use(
   );
 app.set("views", path.join(__dirname, "views"));
 app.use('/uploads', express.static('uploads'))
+app.use('/css', express.static('css'))
 app.use(methodOverride('_method'));
 
 app.get('/', async (req, res) => {
