@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "devStart": "nodemon server.js",
-    "start": "node server.js"
+    "start": "node server.js",
+    "build": "npm install && npm run start"
   },
   "keywords": [],
   "author": "",
@@ -27,5 +28,8 @@
     "nodemon": "^2.0.15",
     "prettier": "^2.5.1",
     "prettier-eslint": "^13.0.0"
+  },
+  "engines": {
+    "node": "v16.13.0"
   }
 }
