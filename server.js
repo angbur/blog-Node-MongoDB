@@ -6,6 +6,7 @@ const methodOverride = require('method-override');
 const bodyParser = require("body-parser");
 const path = require("path");
 const app = express();
+const port = process.env.PORT ? process.env.PORT : 4000;
 
 mongoose.connect('mongodb://localhost/blog');
 
@@ -27,4 +28,6 @@ app.get('/', async (req, res) => {
 
 app.use('/articles', articleRouter);
 
-app.listen(5000);
+app.listen(port, () => {
+  console.log(`Server Running on port: ${port}`);
+});
