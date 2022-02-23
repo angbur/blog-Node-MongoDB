@@ -6,9 +6,13 @@ const methodOverride = require('method-override');
 const bodyParser = require("body-parser");
 const path = require("path");
 const app = express();
-const port = process.env.PORT ? process.env.PORT : 4000;
+const dotenv = require('dotenv');
+const port = process.env.PORT || 4000;
 
-mongoose.connect('mongodb://localhost/blog');
+dotenv.config();
+
+//mongoose.connect('mongodb://localhost/blog');
+mongoose.connect(process.env.DB_CONNECT);
 
 app.set('view engine', 'ejs');
 app.use(
@@ -17,7 +21,7 @@ app.use(
     })
   );
 app.set("views", path.join(__dirname, "views"));
-app.use('/uploads', express.static('uploads'))
+app.use('/uploads', express.static('uploads'));
 app.use('/css', express.static('css'))
 app.use(methodOverride('_method'));
 
@@ -31,7 +35,6 @@ app.use('/articles', articleRouter);
 let server = app.listen(port, () => {
   console.log(`Server Running on port: ${port}`);
 });
-
 
 server.on('clientError', (err, socket) => {
     console.error(err);
