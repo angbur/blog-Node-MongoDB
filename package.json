@@ -30,6 +30,7 @@
     "prettier-eslint": "^13.0.0"
   },
   "engines": {
-    "node": "v16.13.0"
+    "node": "v16.13.0",
+    "npm": "8.1.0"
   }
 }
